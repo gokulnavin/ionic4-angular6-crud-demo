@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Classroom Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{classroom.ClassName}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-card-subtitle>Students:</ion-card-subtitle>
+      <ul>
+        <li *ngFor="let student of classroom.Students">{{student.StudentName}}</li>
+      </ul>
+      <ion-buttons slot="primary">
+        <ion-button routerLink="/edit/{{classroom.Id}}">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+        <ion-button (click)="delete(classroom.Id)" ng-confirm-click="You are going to delete the record!! Are you SURE you want to delete?">
+          <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
